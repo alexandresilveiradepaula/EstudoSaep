@@ -24,5 +24,33 @@ class lista {
         }
         
     }
+    
+    public function removeLista($email) {
+        try{
+            $sql = "delete from lista where usuario=?";
+            
+            $stmt = Conexao::getConexao()->prepare($sql);
+            $stmt->bindValue(1,$email);
+            
+            $stmt->execute();
+            
+            if($stmt->rowCount()>0){
+                return 'Lista Excluida';              
+            }else{
+                return 'Nenhuma lista excluida';
+            }
+            
+            
+        } catch (Exception $ex) {
+            return 'Erro ao excluir lista';
+
+        }
+        
+    }
+        
+        
+        
+        
+    
         
 }

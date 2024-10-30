@@ -25,7 +25,8 @@
         
         
         $l = new lista();
-        print_r($l->addLista('a@a.com','lista de presentes'));
+        //print_r($l->addLista('a@a.com','lista de presentes'));
+        echo $l->removeLista('a@a.com');
         
         echo 'aqui';
         
