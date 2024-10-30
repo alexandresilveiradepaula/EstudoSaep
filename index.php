@@ -9,7 +9,8 @@
         
         include './model/Conexao.php';
         include './model/produto.php';
-        //include './model/usuario.php';
+        include './model/usuario.php';
+        include './model/lista.php';
         
         //$u = new usuario();
         //echo $u->validaUsuario('a@a', 'a');
@@ -19,8 +20,12 @@
         
        
         
-        $p = new produto;
-        print_r($p->recebeProdutos());
+        //$p = new produto;
+        //print_r($p->recebeProdutos());
+        
+        
+        $l = new lista();
+        print_r($l->addLista('a@a.com','lista de presentes'));
         
         echo 'aqui';
         
