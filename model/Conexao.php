@@ -17,6 +17,7 @@ class Conexao {
                 // Tratar erro de conexão
                 die("Erro ao conectar: " . $e->getMessage());
             }
+           
         }
         return self::$instance;
     }

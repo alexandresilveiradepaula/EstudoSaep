@@ -15,6 +15,8 @@ class usuario {
             $stmt->bindValue(6,'padrão.jpg');
             $stmt->execute();
             
+            
+            
             return 'Usuario cadastrado com sucesso';
             
         } catch (Exception $ex) {
