@@ -90,6 +90,25 @@ class usuario {
     return false;
     }
     }
+    
+    public function recebeUsuarios(){
+        try {
+            
+        $sql = "select * from usuario";
+        $stmt = Conexao::getConexao()->prepare($sql);
+        
+        $stmt->execute();
+        
+        if($stmt->rowCount()>0){
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            
+            return $result;
+        }
+            return false;
+        } catch (Exception $ex) {
+            return false;
+        }
+    }
  
     //put your code here
 }
