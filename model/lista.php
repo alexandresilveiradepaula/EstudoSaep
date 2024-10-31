@@ -88,7 +88,7 @@ class lista {
             
             return 'Produto adicionado com sucesso';
  
-        } catch (Exception $ex) {
+        } catch (PDOException $ex) {
             if($ex->errorInfo[1]==1062){
                 return 'Produto adicionado a lista';
             }else{
@@ -118,12 +118,35 @@ class lista {
             }
         } catch (Exception $ex) {
             return 'Erro ao excluir';
-            teste
+            
             
 
         }
+
         
     }   
+    public function getItens($lista){
+        try{
+            $sql = "select produto.codigo, produto.nome from produto"
+            ."inner join item on item.produto_codigo = produto.codigo"
+            ."where lista.codigo =?";
+
+            $stmt = Conexao::getConexao()->prepare($sql);
+            $stmt->bindValue(1,$lista);
+
+            $stmt->execute();
+
+            if($stmt->rowCount()>0){
+                $result = $stmt->fetchALL(PDO::FETCH_BOTH);
+
+                return $result;
+            }
+
+
+
+
+             }
+    }
         
         
         
